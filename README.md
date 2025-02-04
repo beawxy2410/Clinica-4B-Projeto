@@ -19,6 +19,7 @@ Apresentar um documento com: título do projeto, objetivo do sistema, perfis de 
 -	Manter o cadastro dos Médicos
 -	Manter o cadastro das Consultas
 -	Confirmar uma consulta
+-	Visualizar gráfico de frequência de consultas
 -	Entrar no Sistema
 -	Sair do Sistema
 -	Editar Perfil
@@ -28,6 +29,7 @@ Apresentar um documento com: título do projeto, objetivo do sistema, perfis de 
 -	Abrir conta no sistema
 -	Agendar uma consulta
 -	Visualizar minhas consultas
+-	Visualizar médicos por especificação
 -	Entrar no Sistema
 -	Sair do Sistema
 -	Editar Perfil
