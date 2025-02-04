@@ -3,7 +3,6 @@
 -	Turma: InfoWeb 2V
 
 # Tarefa 1. Pontuação: 20 pontos.
-## Data de Entrega: 31/01
 
 - Documento de Visão do Sistema – 5 pontos
 Apresentar um documento com: título do projeto, objetivo do sistema, perfis de usuários envolvidos e a lista de operações que o aplicativo deve realizar.
