@@ -62,6 +62,7 @@ class Especialidades_CRUD(CRUDGeral):
         )
     
 if __name__ == "__main__":
+    CRUDGeral.limpar()
     # Criando algumas especialidades
     especialidade1 = Especialidade(1, "Cardiologista", 200.00)
     especialidade2 = Especialidade(2, "Dermatologista", 180.00)

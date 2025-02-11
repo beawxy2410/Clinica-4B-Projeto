@@ -46,27 +46,30 @@ class CRUDGeral(ABC):
     def listar(cls) -> list:
         return cls.objetos
 
-    @classmethod
-    def listar_id(cls, id_obj: int):        
-        idx = [o.id for o in cls.objetos].index(id_obj)
 
-        if idx:
-            return cls.objetos[idx]
-        else:
-            return None
+    @classmethod 
+    def listar_id(cls, id_obj: int):
+        for o in cls.objetos:
+            if o.id == id_obj:
+                return cls.objetos
+                
 
     @classmethod
     def atualizar(cls, obj) -> None:
-        idx = [o.id for o in cls.objetos].index(obj.id)
-        cls.objetos[idx] = obj  
+        for o in cls.objetos:
+            if o.id == obj.id:
 
+                cls.objetos[cls.objetos.index(o)] = obj
+                break
+            
         cls.salvar()  
 
     @classmethod
     def excluir(cls, id_obj: int) -> None:
-        idx = [o.id for o in cls.objetos].index(id_obj)
-        del cls.objetos[idx]
-
+        for o in cls.objetos:
+            if o.id == id_obj:
+                del cls.objetos[cls.objetos.index(o)]
+                break
         cls.salvar()
 
     @classmethod

@@ -1,4 +1,3 @@
-
 from crud import CRUDGeral
 
 class Medico:
