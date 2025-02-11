@@ -32,3 +32,10 @@ Apresentar um documento com: título do projeto, objetivo do sistema, perfis de 
 -	Entrar no Sistema
 -	Sair do Sistema
 -	Editar Perfil
+
+# Tarefa 2: Pontuação: 20 pontos.
+
+- Implementação de Classes do Modelo e da Persistência – 20 pontos
+Implementar em Python as classes do modelo e da persistência com base nos diagramas
+apresentados. Apresentar código de teste para salvar e ler um objeto de uma classe do modelo em
+um arquivo Json.
