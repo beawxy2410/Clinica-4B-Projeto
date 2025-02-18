@@ -1,4 +1,4 @@
-from crud import CRUDGeral
+from src.models.crud  import CRUDGeral
 
 class AtendimentoItem:
     def __init__(self, id, id_atendimento, id_procedimento):
@@ -52,38 +52,3 @@ class AtendimentoItens_CRUD(CRUDGeral):
             data["id_atendimento"],
             data["id_procedimento"],
         )
-
-
-if __name__ == "__main__":
-    # Criando alguns itens de atendimentos
-    item1 = AtendimentoItem(None, 1, 101)
-    item2 = AtendimentoItem(None, 1, 102)
-    item3 = AtendimentoItem(None, 2, 103)
-
-    # Inserindo os itens de atendimentos
-    AtendimentoItens_CRUD.inserir(item1)
-    AtendimentoItens_CRUD.inserir(item2)
-    AtendimentoItens_CRUD.inserir(item3)
-
-    # Listando todos os itens de atendimentos
-    print("Lista de itens de atendimento:")
-    for item in AtendimentoItens_CRUD.listar():
-        print(item)
-
-    # Atualizando um item de um atendimento 
-    item1.id_procedimento = 105
-    AtendimentoItens_CRUD.atualizar(item1)
-
-    # Listando itens dos atendimentos após atualização
-    print("\nLista de itens de atendimento após atualização:")
-    for item in AtendimentoItens_CRUD.listar():
-        print(item)
-
-    # Excluindo um item de um atendimento
-    AtendimentoItens_CRUD.excluir(item2.id)
-
-    # Listando itens de atendimento após exclusão
-    print("\nLista de itens de atendimento após exclusão:")
-    for item in AtendimentoItens_CRUD.listar():
-        print(item)
-
