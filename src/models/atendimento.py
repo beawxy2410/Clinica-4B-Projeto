@@ -1,5 +1,5 @@
 from datetime import date, time
-from src.models.crud import CRUDGeral
+from models.crud import CRUDGeral
 
 class Atendimento:
     def __init__(self, id, id_paciente, id_medico, data: date, horario: time, valor_final: float ):

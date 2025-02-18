@@ -1,10 +1,10 @@
 from datetime import datetime, timedelta
-from src.models.especialidade import Especialidade, Especialidades_CRUD
-from src.models.medico import Medico, Medicos_CRUD
-from src.models.procedimento import Procedimento, Procedimentos_CRUD
-from src.models.pacientes import Paciente, Pacientes_CRUD
-from src.models.atendimento_item import AtendimentoItem, AtendimentoItens_CRUD
-from src.models.atendimento import Atendimento, Atendimentos_CRUD
+from models.especialidade import Especialidade, Especialidades_CRUD
+from models.medico import Medico, Medicos_CRUD
+from models.procedimento import Procedimento, Procedimentos_CRUD
+from models.pacientes import Paciente, Pacientes_CRUD
+from models.atendimento_item import AtendimentoItem, AtendimentoItens_CRUD
+from models.atendimento import Atendimento, Atendimentos_CRUD
 
 
 class View:

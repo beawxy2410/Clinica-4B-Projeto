@@ -1,4 +1,4 @@
-from src.models.crud import CRUDGeral
+from models.crud import CRUDGeral
 
 class Especialidade:
     def __init__(self, id, nome):

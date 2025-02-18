@@ -1,6 +1,6 @@
 import streamlit as st
 import time
-from src.view import View
+from view import View
 
 class AbrirContaUI:
     @staticmethod

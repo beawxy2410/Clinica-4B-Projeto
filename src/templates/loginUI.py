@@ -1,5 +1,5 @@
 import streamlit as st
-from src.view import View
+from view import View
 
 class LoginUI:
     @staticmethod

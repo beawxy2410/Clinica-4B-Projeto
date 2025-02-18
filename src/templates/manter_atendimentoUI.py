@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from src.view import View
+from view import View
 import time
 
 class ManterAtendimentoUI:

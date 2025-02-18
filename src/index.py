@@ -1,5 +1,5 @@
 import streamlit as st
-from src.view import View
+from view import View
 from templates.manter_pacienteUI import ManterPacienteUI
 from templates.manter_medicoUI import ManterMedicoUI
 from templates.manter_especialidadeUI import ManterEspecialidadeUI

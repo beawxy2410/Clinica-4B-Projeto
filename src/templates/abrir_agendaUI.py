@@ -1,5 +1,5 @@
 import streamlit as st
-from src.view import View
+from view import View
 from datetime import datetime, time
 import time
 
