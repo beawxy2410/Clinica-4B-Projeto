@@ -3,7 +3,7 @@ import pandas as pd
 from view import View
 import time
 
-class ManterAtendimentoUI:
+class ManterAtendimentoUI: #TODO: INSERIR FUNÇÃO PRA GRÁFICOS 
     def main():
         st.header("Cadastro de Atendimentos")
         tab1, tab2, tab3, tab4 = st.tabs(["Listar", "Inserir", "Atualizar", "Excluir"])

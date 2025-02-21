@@ -37,7 +37,7 @@ class Medico:
         return f"{self.id} - {self.nome} - {self.id_especialidade}"
 
 
-class Medicos_CRUD(CRUDGeral):
+class Medicos_CRUD(CRUDGeral): #TODO: COLOCAR O -> listar_especializacao
     nome_arquivo = "medicos"
 
     @classmethod
