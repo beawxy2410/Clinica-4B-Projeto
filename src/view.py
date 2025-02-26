@@ -18,10 +18,11 @@ class View:
         AtendimentoItens_CRUD.abrir()
     
     @staticmethod
-    def paciente_admin(obj: Paciente): #TODO: INSERIR O OBJ NO PACIENTE
+    def paciente_admin():
         for paciente in Pacientes_CRUD.listar():
             if paciente.email == "@admin":
                 return
+
 
         admin_paciente = Paciente(
             None, "admin", "000000000", "@admin", "00000000000", "1234"
