@@ -77,6 +77,7 @@ class IndexUI:
 
     @staticmethod
     def main():
+        View.abrir_cruds()
         View.paciente_admin()
         IndexUI.sidebar()
 
