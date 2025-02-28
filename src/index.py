@@ -9,6 +9,9 @@ from templates.manter_atendimentoitemUI import ManterAtendimentoItemUI
 from templates.abrir_agendaUI import AbrirAgendaUI
 from templates.abrir_contaUI import AbrirContaUI
 from templates.listar_atendimentoUI import ListarAtendimentoUI
+from templates.listar_medico_por_especialidadeUI import ListarMedicoPorEspecialidadeUI
+from templates.agendar_atendimentoUI import AgendarAtendimentoUI
+from templates.grafico_frequenciaUI import GraficoFrequenciaUI
 from templates.loginUI import LoginUI
 
 class IndexUI:
@@ -48,12 +51,19 @@ class IndexUI:
             ManterAtendimentoItemUI.main()
         if op == "Abrir Agenda do Dia":
             AbrirAgendaUI.main()
+        if op == "Gráfico de Frequência":
+            GraficoFrequenciaUI.main()
 
     @staticmethod
     def menu_cliente():
         op = st.sidebar.selectbox("Menu", ["Listar Atendimentos"])
         if op == "Listar Atendimentos":
             ListarAtendimentoUI.main()
+        if op == "Listar Médicos por Especialidade":
+            ListarMedicoPorEspecialidadeUI.main()
+        if op == "Agendar Atendimento"():
+            AgendarAtendimentoUI.main
+
 
     @staticmethod
     def sair_do_sistema():
