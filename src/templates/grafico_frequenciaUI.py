@@ -21,7 +21,6 @@ class GraficoFrequenciaUI:
             df['semana'] = df['data'].dt.to_period('W').dt.start_time
             frequencia_semanal = df.groupby('semana').size().reset_index(name='quantidade')
 
-            # Exibe a tabela de frequência
             st.write("Frequência de Atendimentos por Semana")
             st.dataframe(frequencia_semanal)
 
