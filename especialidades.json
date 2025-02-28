@@ -1,10 +1,6 @@
 [
-    {
-        "id": 1,
-        "nome": "Erica"
-    },
-    {
-        "id": 2,
-        "nome": "cardiologista"
-    }
+	{
+		"id": 1,
+		"nome": "cardiologista"
+	}
 ]

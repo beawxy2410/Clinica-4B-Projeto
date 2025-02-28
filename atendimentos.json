@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "id_paciente": 1,
+        "id_medico": 1,
+        "data": "2025-02-27",
+        "horario": "22:43:00",
+        "valor_final": 0.0
+    }
+]

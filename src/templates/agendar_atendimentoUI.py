@@ -1,7 +1,5 @@
 import streamlit as st
-from models.atendimento import Atendimentos_CRUD
-from models.medico import Medicos_CRUD
-from models.paciente import Pacientes_CRUD
+from view import View
 from datetime import date, time
 import time
 
@@ -12,8 +10,8 @@ class AgendarAtendimentoUI:
 
     def agendar():
         # Lista de médicos e pacientes
-        medicos = Medicos_CRUD.listar()
-        pacientes = Pacientes_CRUD.listar()
+        medicos = View.medico_listar()
+        pacientes = View.paciente_listar()
 
         if len(medicos) == 0 or len(pacientes) == 0:
             st.write("Nenhum médico ou paciente cadastrado.")
@@ -38,8 +36,7 @@ class AgendarAtendimentoUI:
             if st.button("Agendar"):
                 try:
                     # Cria um novo atendimento
-                    novo_atendimento = Atendimentos_CRUD.inserir(
-                        id=None,  # O ID será gerado automaticamente
+                    novo_atendimento = View.atendimento_inserir(
                         id_paciente=paciente_escolhido.id,
                         id_medico=medico_escolhido.id,
                         data=data,
