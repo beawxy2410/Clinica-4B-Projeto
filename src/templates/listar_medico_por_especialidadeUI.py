@@ -23,6 +23,7 @@ class ListarMedicoPorEspecialidadeUI:
                     "ID Médico": med.id,
                     "Nome Médico": med.nome,
                     "ID Especialidade": med.id_especialidade,
+                    "Especialidade": med.nome_especialidade,
                 })
 
             df = pd.DataFrame(dados)

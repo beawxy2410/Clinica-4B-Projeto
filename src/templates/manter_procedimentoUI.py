@@ -21,7 +21,16 @@ class ManterProcedimentoUI:
         if len(procedimentos) == 0:
             st.write("Nenhum procedimento cadastrado")
         else:
-            dic = [obj.__dict__ for obj in procedimentos]
+            dic = []
+            for obj in procedimentos:
+                dic.append(
+                    {
+                        "ID": obj.id,
+                        "Descrição": obj.descricao,
+                        "Valor": obj.valor,
+                    }
+                )
+
             df = pd.DataFrame(dic)
             st.dataframe(df, hide_index=True)
 

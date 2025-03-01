@@ -1,10 +1,11 @@
 from models.crud import CRUDGeral
 
 class Medico:
-    def __init__(self, id, nome, id_especialidade):
+    def __init__(self, id, nome, id_especialidade, nome_especialidade):
         self.id = id
         self.nome = nome
         self.id_especialidade = id_especialidade
+        self.nome_especialidade = nome_especialidade 
 
     @property
     def id(self):
@@ -33,11 +34,22 @@ class Medico:
     def id_especialidade(self, value: int):
         self._id_especialidade = value
 
+    @property
+    def nome_especialidade(self):
+        return self._nome_especialidade
+
+    @nome_especialidade.setter
+    def nome_especialidade(self, value: str):
+        if value:
+            self._nome_especialidade = value
+        else:
+            raise ValueError("Informe o nome da especialidade")
+
     def __str__(self):
-        return f"{self.id} - {self.nome} - {self.id_especialidade}"
+        return f"{self.id} - {self.nome} - {self.id_especialidade} - {self.nome_especialidade}"
 
 
-class Medicos_CRUD(CRUDGeral): #TODO: COLOCAR O -> listar_especializacao
+class Medicos_CRUD(CRUDGeral):
     nome_arquivo = "medicos"
 
     @classmethod
@@ -46,6 +58,7 @@ class Medicos_CRUD(CRUDGeral): #TODO: COLOCAR O -> listar_especializacao
             "id": obj.id,
             "nome": obj.nome,
             "id_especialidade": obj.id_especialidade,
+            "nome_especialidade": obj.nome_especialidade,  
         }
 
     @classmethod
@@ -54,5 +67,6 @@ class Medicos_CRUD(CRUDGeral): #TODO: COLOCAR O -> listar_especializacao
             data["id"],
             data["nome"],
             data["id_especialidade"],
+            data["nome_especialidade"],  
         )
 

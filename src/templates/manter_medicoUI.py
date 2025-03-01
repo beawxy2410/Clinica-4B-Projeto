@@ -3,6 +3,11 @@ import pandas as pd
 from view import View
 import time
 
+import streamlit as st
+import pandas as pd
+from view import View
+import time
+
 class ManterMedicoUI:
     def main():
         st.header("Cadastro de Médicos")
@@ -21,15 +26,29 @@ class ManterMedicoUI:
         if len(medicos) == 0:
             st.write("Nenhum médico cadastrado")
         else:
-            dic = [obj.__dict__ for obj in medicos]
+            dic = []
+            for obj in medicos:
+                dic.append(
+                    {
+                        "ID": obj.id,
+                        "Médico": obj.nome,
+                        "ID Especialidade": obj.id_especialidade,
+                        "Especialidade": obj.nome_especialidade,
+                    }
+                )
             df = pd.DataFrame(dic)
             st.dataframe(df, hide_index=True)
+
     def inserir():
         nome = st.text_input("Informe o nome do médico")
         id_especialidade = st.number_input("Informe o ID da especialidade", min_value=1)
         if st.button("Inserir"):
             try:
-                View.medico_inserir(nome, id_especialidade)
+                especialidade = View.especialidade_listar_id(id_especialidade)
+                if not especialidade:
+                    raise ValueError("Especialidade não encontrada")
+                
+                View.medico_inserir(nome, id_especialidade, especialidade.nome)
                 st.success("Médico inserido com sucesso.")
                 time.sleep(2)
                 st.rerun()
@@ -46,7 +65,11 @@ class ManterMedicoUI:
             id_especialidade = st.number_input("Informe o novo ID da especialidade", value=op.id_especialidade)
             if st.button("Atualizar"):
                 try:
-                    View.medico_atualizar(op.id, nome, id_especialidade)
+                    especialidade = View.especialidade_listar_id(id_especialidade)
+                    if not especialidade:
+                        raise ValueError("Especialidade não encontrada")
+                    
+                    View.medico_atualizar(op.id, nome, id_especialidade, especialidade.nome)
                     st.success("Médico atualizado com sucesso")
                     time.sleep(2)
                     st.rerun()
