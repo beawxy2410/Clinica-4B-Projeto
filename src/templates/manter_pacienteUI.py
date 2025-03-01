@@ -21,20 +21,21 @@ class ManterPacienteUI:
         if len(pacientes) == 0:
             st.write("Nenhum paciente cadastrado")
         else:
-            dic = [obj.__dict__ for obj in pacientes]
+            dic = []
+            for obj in pacientes:
+                dic.append(
+                    {
+                        "ID": obj.id,
+                        "Nome": obj.nome,
+                        "Telefone": obj.fone,
+                        "E-mail": obj.email,
+                        "CPF": obj.cpf,
+                        "Senha": obj.senha,
+                    }
+                )
+
             df = pd.DataFrame(dic)
-            st.dataframe(
-            df,
-            column_config={
-                "id": "ID",
-                "nome": "Nome",
-                "fone": "Telefone",
-                "email": "E-mail",
-                "cpf": "CPF",
-                "senha": "Senha"
-            },
-            hide_index=True
-        )
+            st.dataframe(df, hide_index=True)
 
 
     def inserir():
