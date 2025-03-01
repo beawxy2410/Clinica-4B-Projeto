@@ -23,19 +23,7 @@ class ManterMedicoUI:
         else:
             dic = [obj.__dict__ for obj in medicos]
             df = pd.DataFrame(dic)
-            st.dataframe(
-            df,
-            column_config={
-                "id": "ID",
-                "nome": "Nome",
-                "fone": "Telefone",
-                "email": "E-mail",
-                "cpf": "CPF",
-                "senha": "Senha"
-            },
-            hide_index=True
-        )
-
+            st.dataframe(df, hide_index=True)
     def inserir():
         nome = st.text_input("Informe o nome do médico")
         id_especialidade = st.number_input("Informe o ID da especialidade", min_value=1)
