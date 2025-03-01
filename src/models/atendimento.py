@@ -1,5 +1,7 @@
 from datetime import date, time
 from models.crud import CRUDGeral
+# from models.medico import Medico, Medicos_CRUD
+# from models.paciente import Paciente, Pacientes_CRUD
 
 class Atendimento:
     def __init__(self, id, id_paciente, id_medico, data: date, horario: time, valor_final: float ):

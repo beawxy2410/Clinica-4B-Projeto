@@ -24,9 +24,10 @@ class ManterAtendimentoItemUI:
             dic = []
             for obj in itens:
                 dic.append(
-                    {
+                    {   
+                        "ID": obj.id,
                         "ID Atendimento": obj.id_atendimento,
-                        "ID Procedimento": obj.id_procedimento,
+                        "ID Procedimento": obj.id_especialidade,
                     }
                 )
             df = pd.DataFrame(dic)

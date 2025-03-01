@@ -1,12 +1,12 @@
 from models.crud import CRUDGeral
-from models.especialidade import Especialidade, Especialidades_CRUD
+# from models.especialidade import Especialidade, Especialidades_CRUD
 
 class Medico:
     def __init__(self, id, nome, id_especialidade, nome_especialidade):
         self.id = id
         self.nome = nome
-        self.id_especialidade = id_especialidade
-        self.nome_especialidade = nome_especialidade 
+        self.idEspecialidade = id_especialidade
+        self.nomeEspecialidade = nome_especialidade 
 
     @property
     def id(self):

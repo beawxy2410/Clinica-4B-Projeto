@@ -1,4 +1,6 @@
 from models.crud  import CRUDGeral
+# from models.procedimento import Procedimento, Procedimentos_CRUD
+
 
 class AtendimentoItem:
     def __init__(self, id, id_atendimento, id_procedimento):
