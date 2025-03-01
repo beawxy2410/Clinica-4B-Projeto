@@ -12,6 +12,7 @@ from templates.listar_atendimentoUI import ListarAtendimentoUI
 from templates.listar_medico_por_especialidadeUI import ListarMedicoPorEspecialidadeUI
 from templates.agendar_atendimentoUI import AgendarAtendimentoUI
 from templates.grafico_frequenciaUI import GraficoFrequenciaUI
+from templates.atualizar_valor_atendimentoUI import AtualizarValorAtendimentoUI
 from templates.loginUI import LoginUI
 
 
@@ -36,6 +37,8 @@ class IndexUI:
                 "Cadastro de Atendimentos",
                 "Cadastro de Itens de Atendimento",
                 "Abrir Agenda do Dia",
+                "Gráfico de Frequência",
+                "Atualizar Valor do Atendimento",
             ],
         )
         if op == "Cadastro de Pacientes":
@@ -54,6 +57,8 @@ class IndexUI:
             AbrirAgendaUI.main()
         if op == "Gráfico de Frequência":
             GraficoFrequenciaUI.main()
+        if op == "Atualizar Valor do Atendimento":
+            AtualizarValorAtendimentoUI.main()
 
     @staticmethod
     def menu_cliente():
