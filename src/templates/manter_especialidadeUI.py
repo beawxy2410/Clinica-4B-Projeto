@@ -21,7 +21,14 @@ class ManterEspecialidadeUI:
         if len(especialidades) == 0:
             st.write("Nenhuma especialidade cadastrada")
         else:
-            dic = [obj.__dict__ for obj in especialidades]
+            dic = []
+            for obj in especialidades:
+                dic.append(
+                    {
+                        "ID": obj.id,
+                        "Especialidade": obj.nome,
+                    }
+                )
             df = pd.DataFrame(dic)
             st.dataframe(df, hide_index=True)
 

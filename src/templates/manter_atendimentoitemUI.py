@@ -21,7 +21,14 @@ class ManterAtendimentoItemUI:
         if len(itens) == 0:
             st.write("Nenhum item de atendimento cadastrado")
         else:
-            dic = [obj.__dict__ for obj in itens]
+            dic = []
+            for obj in itens:
+                dic.append(
+                    {
+                        "ID Atendimento": obj.id_atendimento,
+                        "ID Procedimento": obj.id_procedimento,
+                    }
+                )
             df = pd.DataFrame(dic)
             st.dataframe(df, hide_index=True)
             

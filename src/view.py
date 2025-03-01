@@ -52,8 +52,8 @@ class View:
         Especialidades_CRUD.excluir(id)
 
     @staticmethod
-    def medico_inserir(nome, id_especialidade):
-        medico = Medico(None, nome, id_especialidade)
+    def medico_inserir(nome, id_especialidade, nome_especialidade):
+        medico = Medico(None, nome, id_especialidade, nome_especialidade)
         Medicos_CRUD.inserir(medico)
 
     @staticmethod
@@ -69,8 +69,8 @@ class View:
         return Medicos_CRUD.listar_por_id_especialidade(id_especialidade)
 
     @staticmethod
-    def medico_atualizar(id, nome, id_especialidade):
-        medico = Medico(id, nome, id_especialidade)
+    def medico_atualizar(id, nome, id_especialidade, nome_especialidade):
+        medico = Medico(id, nome, id_especialidade, nome_especialidade)
         Medicos_CRUD.atualizar(medico)
 
     @staticmethod

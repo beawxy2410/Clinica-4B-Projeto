@@ -1,4 +1,5 @@
 from models.crud import CRUDGeral
+from models.especialidade import Especialidade, Especialidades_CRUD
 
 class Medico:
     def __init__(self, id, nome, id_especialidade, nome_especialidade):

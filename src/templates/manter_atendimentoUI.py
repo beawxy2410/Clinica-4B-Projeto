@@ -3,7 +3,7 @@ import pandas as pd
 from view import View
 import time
 
-class ManterAtendimentoUI: #TODO: INSERIR FUNÇÃO PRA GRÁFICOS 
+class ManterAtendimentoUI: 
     def main():
         st.header("Cadastro de Atendimentos")
         tab1, tab2, tab3, tab4 = st.tabs(["Listar", "Inserir", "Atualizar", "Excluir"])
@@ -21,7 +21,16 @@ class ManterAtendimentoUI: #TODO: INSERIR FUNÇÃO PRA GRÁFICOS
         if len(atendimentos) == 0:
             st.write("Nenhum atendimento cadastrado")
         else:
-            dic = [obj.__dict__ for obj in atendimentos]
+            dic = []
+            for obj in atendimentos:
+                dic.append(
+                    {
+                        "ID Paciente": obj.id_atendimento,
+                        "ID Médico": obj.id_procedimento,
+                        "data": obj.data,
+                        "horario": obj.horario,
+                    }
+                )
             df = pd.DataFrame(dic)
             st.dataframe(df, hide_index=True)
 

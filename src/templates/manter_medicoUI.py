@@ -3,11 +3,6 @@ import pandas as pd
 from view import View
 import time
 
-import streamlit as st
-import pandas as pd
-from view import View
-import time
-
 class ManterMedicoUI:
     def main():
         st.header("Cadastro de Médicos")
@@ -48,7 +43,7 @@ class ManterMedicoUI:
                 if not especialidade:
                     raise ValueError("Especialidade não encontrada")
                 
-                View.medico_inserir(nome, id_especialidade, especialidade.nome)
+                View.medico_inserir(nome, id_especialidade, nome_especialidade)
                 st.success("Médico inserido com sucesso.")
                 time.sleep(2)
                 st.rerun()
@@ -69,7 +64,7 @@ class ManterMedicoUI:
                     if not especialidade:
                         raise ValueError("Especialidade não encontrada")
                     
-                    View.medico_atualizar(op.id, nome, id_especialidade, especialidade.nome)
+                    View.medico_atualizar(op.id, nome, id_especialidade, nome_especialidade)
                     st.success("Médico atualizado com sucesso")
                     time.sleep(2)
                     st.rerun()
