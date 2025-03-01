@@ -23,6 +23,7 @@ class ManterPacienteUI:
         else:
             dic = [obj.__dict__ for obj in pacientes]
             df = pd.DataFrame(dic)
+            df = df.reset_index(drop=True)  
             st.dataframe(df)
 
     def inserir():

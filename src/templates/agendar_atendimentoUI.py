@@ -9,7 +9,6 @@ class AgendarAtendimentoUI:
         AgendarAtendimentoUI.agendar()
 
     def agendar():
-        # Lista de médicos e pacientes
         medicos = View.medico_listar()
         pacientes = View.paciente_listar()
 
@@ -44,5 +43,3 @@ class AgendarAtendimentoUI:
                 except Exception as e:
                     st.error(f"Erro ao agendar atendimento: {str(e)}")
 
-if __name__ == "__main__":
-    AgendarAtendimentoUI.main()

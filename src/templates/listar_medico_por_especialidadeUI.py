@@ -28,5 +28,3 @@ class ListarMedicoPorEspecialidadeUI:
             df = pd.DataFrame(dados)
             st.dataframe(df)
 
-if __name__ == "__main__":
-    ListarMedicoPorEspecialidadeUI.main()

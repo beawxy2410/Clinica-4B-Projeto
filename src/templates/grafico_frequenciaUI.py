@@ -24,5 +24,3 @@ class GraficoFrequenciaUI:
             st.write("Frequência de Atendimentos por Semana")
             st.dataframe(frequencia_semanal)
 
-if __name__ == "__main__":
-    GraficoFrequenciaUI.main()
