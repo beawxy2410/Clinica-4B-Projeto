@@ -6,13 +6,5 @@
         "email": "@admin",
         "cpf": "00000000000",
         "senha": "1234"
-    },
-    {
-        "id": 2,
-        "nome": "juliana",
-        "fone": "5995",
-        "email": "juliana@gmail.com",
-        "cpf": "4849",
-        "senha": "2448"
     }
 ]
