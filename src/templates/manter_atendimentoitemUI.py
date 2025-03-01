@@ -23,7 +23,8 @@ class ManterAtendimentoItemUI:
         else:
             dic = [obj.__dict__ for obj in itens]
             df = pd.DataFrame(dic)
-            st.dataframe(df)
+            st.dataframe(df, hide_index=True)
+            
 
     def inserir():
         id_atendimento = st.number_input("Informe o ID do atendimento", min_value=1)

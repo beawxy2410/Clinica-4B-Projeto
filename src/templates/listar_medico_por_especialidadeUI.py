@@ -26,5 +26,5 @@ class ListarMedicoPorEspecialidadeUI:
                 })
 
             df = pd.DataFrame(dados)
-            st.dataframe(df)
+            st.dataframe(df, hide_index=True)
 

@@ -23,7 +23,18 @@ class ManterMedicoUI:
         else:
             dic = [obj.__dict__ for obj in medicos]
             df = pd.DataFrame(dic)
-            st.dataframe(df)
+            st.dataframe(
+            df,
+            column_config={
+                "id": "ID",
+                "nome": "Nome",
+                "fone": "Telefone",
+                "email": "E-mail",
+                "cpf": "CPF",
+                "senha": "Senha"
+            },
+            hide_index=True
+        )
 
     def inserir():
         nome = st.text_input("Informe o nome do médico")
@@ -42,9 +53,9 @@ class ManterMedicoUI:
         if len(medicos) == 0:
             st.write("Nenhum médico cadastrado")
         else:
-            op = st.selectbox("Atualização de médico", medicos)
-            nome = st.text_input("Informe o novo nome do médico", op.nome)
-            id_especialidade = st.number_input("Informe o novo ID da especialidade", op.id_especialidade)
+            op = st.selectbox("Atualização de médico", medicos, format_func=lambda x: f"ID: {x.id} - Nome: {x.nome} - Especialidade ID: {x.id_especialidade}")
+            nome = st.text_input("Informe o novo nome do médico", value=op.nome)
+            id_especialidade = st.number_input("Informe o novo ID da especialidade", value=op.id_especialidade)
             if st.button("Atualizar"):
                 try:
                     View.medico_atualizar(op.id, nome, id_especialidade)
@@ -59,7 +70,7 @@ class ManterMedicoUI:
         if len(medicos) == 0:
             st.write("Nenhum médico cadastrado.")
         else:
-            descricao_para_medico = {f"ID: {c.id} - Nome: {c.nome}": c for c in medicos}
+            descricao_para_medico = {f"ID: {c.id} - Nome: {c.nome} - Especialidade ID: {c.id_especialidade}": c for c in medicos}
             descricao_escolhida = st.selectbox("Exclusão de médico", list(descricao_para_medico.keys()))
             medico_escolhido = descricao_para_medico[descricao_escolhida]
             if st.button("Excluir"):

@@ -23,7 +23,7 @@ class ManterEspecialidadeUI:
         else:
             dic = [obj.__dict__ for obj in especialidades]
             df = pd.DataFrame(dic)
-            st.dataframe(df)
+            st.dataframe(df, hide_index=True)
 
     def inserir():
         nome = st.text_input("Informe o nome da especialidade")

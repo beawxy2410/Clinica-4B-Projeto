@@ -30,10 +30,6 @@ class AbrirAgendaUI:
                 atendimentos = View.abrir_agenda(data, hinicio, hfim, intervalo)
 
                 st.success("Atendimento(s) inserido(s) com sucesso!")
-                st.write("Atendimentos gerados:")
-                for atendimento in atendimentos:
-                    st.write(atendimento)
-
                 time.sleep(2)
                 st.rerun()
 

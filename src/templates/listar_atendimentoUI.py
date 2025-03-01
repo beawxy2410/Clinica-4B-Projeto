@@ -25,5 +25,5 @@ class ListarAtendimentoUI:
                 })
 
             df = pd.DataFrame(dic)
-            st.dataframe(df)
+            st.dataframe(df, hide_index=True)
 

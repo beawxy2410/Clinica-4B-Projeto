@@ -23,7 +23,7 @@ class ManterAtendimentoUI: #TODO: INSERIR FUNÇÃO PRA GRÁFICOS
         else:
             dic = [obj.__dict__ for obj in atendimentos]
             df = pd.DataFrame(dic)
-            st.dataframe(df)
+            st.dataframe(df, hide_index=True)
 
     def inserir():
         id_paciente = st.number_input("Informe o ID do paciente", min_value=1)

@@ -23,8 +23,9 @@ class ManterProcedimentoUI:
         else:
             dic = [obj.__dict__ for obj in procedimentos]
             df = pd.DataFrame(dic)
-            st.dataframe(df)
+            st.dataframe(df, hide_index=True)
 
+            
     def inserir():
         descricao = st.text_input("Informe a descrição do procedimento")
         valor = st.number_input("Informe o valor do procedimento", min_value=0.0)
