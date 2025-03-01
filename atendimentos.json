@@ -3,8 +3,8 @@
         "id": 1,
         "id_paciente": 1,
         "id_medico": 1,
-        "data": "2025-02-27",
-        "horario": "22:43:00",
-        "valor_final": 0.0
+        "data": "2025-03-01",
+        "horario": "15:25:00",
+        "valor_final": 700.0
     }
 ]

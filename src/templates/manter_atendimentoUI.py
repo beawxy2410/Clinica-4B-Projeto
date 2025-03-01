@@ -25,10 +25,12 @@ class ManterAtendimentoUI:
             for obj in atendimentos:
                 dic.append(
                     {
-                        "ID Paciente": obj.id_atendimento,
-                        "ID Médico": obj.id_procedimento,
-                        "data": obj.data,
-                        "horario": obj.horario,
+                        "ID": obj.id,
+                        "ID Paciente": obj.id_paciente,
+                        "ID Médico": obj.id_medico,
+                        "Data": obj.data,
+                        "Horário": obj.horario,
+                        "Valor Final": obj.valor_final,
                     }
                 )
             df = pd.DataFrame(dic)
