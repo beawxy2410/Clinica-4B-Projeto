@@ -16,13 +16,12 @@ class View:
         Pacientes_CRUD.abrir()
         Atendimentos_CRUD.abrir()
         AtendimentoItens_CRUD.abrir()
-    
+
     @staticmethod
     def paciente_admin():
         for paciente in Pacientes_CRUD.listar():
             if paciente.email == "@admin":
                 return
-
 
         admin_paciente = Paciente(
             None, "admin", "000000000", "@admin", "00000000000", "1234"
@@ -52,8 +51,8 @@ class View:
         Especialidades_CRUD.excluir(id)
 
     @staticmethod
-    def medico_inserir(nome, id_especialidade, nome_especialidade):
-        medico = Medico(None, nome, id_especialidade, nome_especialidade)
+    def medico_inserir(nome, id_especialidade):
+        medico = Medico(None, nome, id_especialidade)
         Medicos_CRUD.inserir(medico)
 
     @staticmethod
@@ -69,8 +68,8 @@ class View:
         return Medicos_CRUD.listar_por_id_especialidade(id_especialidade)
 
     @staticmethod
-    def medico_atualizar(id, nome, id_especialidade, nome_especialidade):
-        medico = Medico(id, nome, id_especialidade, nome_especialidade)
+    def medico_atualizar(id, nome, id_especialidade):
+        medico = Medico(id, nome, id_especialidade)
         Medicos_CRUD.atualizar(medico)
 
     @staticmethod
@@ -144,7 +143,7 @@ class View:
         AtendimentoItens_CRUD.excluir(id)
 
     @staticmethod
-    def atendimento_inserir(id_paciente, id_medico, data, horario, valor_final=None):
+    def atendimento_inserir(id_paciente, id_medico, data, horario, valor_final):
         atendimento = Atendimento(
             None, id_paciente, id_medico, data, horario, valor_final
         )
@@ -208,11 +207,12 @@ class View:
     @staticmethod
     def listar_medicos_por_especialidade(id_especialidade: int) -> list[Medico]:
         medicos = Medicos_CRUD.listar()
-        return [medico for medico in medicos if medico.id_especialidade == id_especialidade]
-
+        return [
+            medico for medico in medicos if medico.id_especialidade == id_especialidade
+        ]
 
     @staticmethod
-    def calcular_valor_final_atendimento(id_atendimento: int) -> float:
+    def atendimento_atualizar_preco(id_atendimento: int) -> None:
         itens_atendimento = View.listar_itens_por_atendimento(id_atendimento)
         valor_final = 0.0
         for item in itens_atendimento:
@@ -223,5 +223,4 @@ class View:
         if atendimento:
             atendimento.valor_final = valor_final
             Atendimentos_CRUD.atualizar(atendimento)
-        
-        return valor_final
+        atendimento = Atendimentos_CRUD.listar_id(id_atendimento)

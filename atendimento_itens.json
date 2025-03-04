@@ -1,0 +1,37 @@
+[
+    {
+        "id": 3,
+        "id_atendimento": 5,
+        "id_procedimento": 2
+    },
+    {
+        "id": 4,
+        "id_atendimento": 5,
+        "id_procedimento": 3
+    },
+    {
+        "id": 5,
+        "id_atendimento": 6,
+        "id_procedimento": 1
+    },
+    {
+        "id": 6,
+        "id_atendimento": 6,
+        "id_procedimento": 4
+    },
+    {
+        "id": 7,
+        "id_atendimento": 6,
+        "id_procedimento": 3
+    },
+    {
+        "id": 8,
+        "id_atendimento": 2,
+        "id_procedimento": 2
+    },
+    {
+        "id": 9,
+        "id_atendimento": 2,
+        "id_procedimento": 1
+    }
+]

@@ -3,6 +3,7 @@ from view import View
 from datetime import datetime, time
 import time
 
+
 class AbrirAgendaUI:
     @staticmethod
     def main():
@@ -18,7 +19,9 @@ class AbrirAgendaUI:
 
         hinicio_str = st.text_input("Informe o horário inicial no formato *HH:MM*")
         hfim_str = st.text_input("Informe o horário final no formato *HH:MM*")
-        intervalo_str = st.text_input("Informe o intervalo entre os atendimentos (minutos)")
+        intervalo_str = st.text_input(
+            "Informe o intervalo entre os atendimentos (minutos)"
+        )
 
         if st.button("Inserir Atendimentos"):
             try:
@@ -27,7 +30,11 @@ class AbrirAgendaUI:
                 hfim = datetime.strptime(hfim_str, "%H:%M").time()
                 intervalo = int(intervalo_str)
 
-                atendimentos = View.abrir_agenda(data, hinicio, hfim, intervalo)
+                horarios = View.abrir_agenda(data, hinicio, hfim, intervalo)
+
+                for horario in horarios:
+                    horario = datetime.strptime(horario, "%d/%m/%Y %H:%M")
+                    View.atendimento_inserir(0, 0, horario.date(), horario.time(), 0)
 
                 st.success("Atendimento(s) inserido(s) com sucesso!")
                 time.sleep(2)
@@ -35,5 +42,3 @@ class AbrirAgendaUI:
 
             except ValueError as e:
                 st.error(f"Erro ao abrir agenda de atendimentos: {str(e)}")
-
-

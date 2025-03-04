@@ -3,14 +3,14 @@ from abc import ABC, abstractmethod
 
 
 class CRUDGeral(ABC):
-    objetos: list = []  
-    nome_arquivo: str = "dados"  
+    objetos: list = []
+    nome_arquivo: str = "dados"
 
     @classmethod
     def salvar(cls) -> None:
         dados: list[dict] = []
         for obj in cls.objetos:
-            dados.append(cls.to_dict(obj))  
+            dados.append(cls.to_dict(obj))
         with open(f"{cls.nome_arquivo}.json", "w") as arquivo:
             json.dump(dados, arquivo, indent=4)
 
@@ -46,13 +46,11 @@ class CRUDGeral(ABC):
     def listar(cls) -> list:
         return cls.objetos
 
-
-    @classmethod 
+    @classmethod
     def listar_id(cls, id_obj: int):
         for o in cls.objetos:
             if o.id == id_obj:
-                return cls.objetos
-                
+                return o
 
     @classmethod
     def atualizar(cls, obj) -> None:
@@ -61,8 +59,8 @@ class CRUDGeral(ABC):
 
                 cls.objetos[cls.objetos.index(o)] = obj
                 break
-            
-        cls.salvar()  
+
+        cls.salvar()
 
     @classmethod
     def excluir(cls, id_obj: int) -> None:
@@ -81,4 +79,3 @@ class CRUDGeral(ABC):
     @abstractmethod
     def from_dict(cls, dados: dict):
         pass
-
