@@ -9,10 +9,9 @@ from templates.manter_atendimentoitemUI import ManterAtendimentoItemUI
 from templates.abrir_agendaUI import AbrirAgendaUI
 from templates.abrir_contaUI import AbrirContaUI
 from templates.listar_atendimentoUI import ListarAtendimentoUI
-from templates.listar_medico_por_especialidadeUI import ListarMedicoPorEspecialidadeUI
 from templates.agendar_atendimentoUI import AgendarAtendimentoUI
-from templates.grafico_frequenciaUI import GraficoFrequenciaUI
-from templates.atualizar_valor_atendimentoUI import AtualizarValorAtendimentoUI
+from templates.grafico_valoresUI import GraficoValoresUI
+from templates.adicionar_procedimentoUI import AdicionarProcedimentoUI
 from templates.loginUI import LoginUI
 
 
@@ -37,8 +36,8 @@ class IndexUI:
                 "Cadastro de Atendimentos",
                 "Cadastro de Itens de Atendimento",
                 "Abrir Agenda do Dia",
-                "Gráfico de Frequência",
-                "Atualizar Valor do Atendimento",
+                "Gráfico de Valores",
+                "Adicionar Procedimento em Atendimento",
             ],
         )
         if op == "Cadastro de Pacientes":
@@ -55,18 +54,22 @@ class IndexUI:
             ManterAtendimentoItemUI.main()
         if op == "Abrir Agenda do Dia":
             AbrirAgendaUI.main()
-        if op == "Gráfico de Frequência":
-            GraficoFrequenciaUI.main()
-        if op == "Atualizar Valor do Atendimento":
-            AtualizarValorAtendimentoUI.main()
+        if op == "Gráfico de Valores":
+            GraficoValoresUI.main()
+        if op == "Adicionar Procedimento em Atendimento":
+            AdicionarProcedimentoUI.main()
 
     @staticmethod
     def menu_cliente():
-        op = st.sidebar.selectbox("Menu", ["Listar Atendimentos", "Listar Médicos por Especialidade", "Agendar Atendimento"])
+        op = st.sidebar.selectbox(
+            "Menu",
+            [
+                "Listar Atendimentos",
+                "Agendar Atendimento",
+            ],
+        )
         if op == "Listar Atendimentos":
             ListarAtendimentoUI.main()
-        if op == "Listar Médicos por Especialidade":
-            ListarMedicoPorEspecialidadeUI.main()
         if op == "Agendar Atendimento":
             AgendarAtendimentoUI.main()
 

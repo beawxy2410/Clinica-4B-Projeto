@@ -3,6 +3,7 @@ from view import View
 from datetime import date, time
 import time
 
+
 class AgendarAtendimentoUI:
     def main():
         st.header("Agendar Atendimento")
@@ -10,36 +11,44 @@ class AgendarAtendimentoUI:
 
     def agendar():
         medicos = View.medico_listar()
-        pacientes = View.paciente_listar()
+        atendimentos = View.atendimento_listar()
+        atendimentos_livres = []
+        for at in atendimentos:
+            if at.id_medico is 0:
+                atendimentos_livres.append(at)
 
-        if len(medicos) == 0 or len(pacientes) == 0:
-            st.write("Nenhum médico ou paciente cadastrado.")
+        if len(medicos) == 0 or len(atendimentos_livres) == 0:
+            st.write("Nenhum médico ou atendimento cadastrado.")
         else:
-            paciente_para_descricao = {f"ID: {pac.id} - Nome: {pac.nome}": pac for pac in pacientes}
-            descricao_paciente = st.selectbox("Selecione o paciente", list(paciente_para_descricao.keys()))
-            paciente_escolhido = paciente_para_descricao[descricao_paciente]
+            descricoes_medicos = {
+                f"ID: {med.id} - Nome: {med.nome}": med for med in medicos
+            }
+            descricao_medico = st.selectbox(
+                "Selecione o médico", list(descricoes_medicos.keys())
+            )
+            medico_escolhido = descricoes_medicos[descricao_medico]
 
-            medico_para_descricao = {f"ID: {med.id} - Nome: {med.nome}": med for med in medicos}
-            descricao_medico = st.selectbox("Selecione o médico", list(medico_para_descricao.keys()))
-            medico_escolhido = medico_para_descricao[descricao_medico]
-
-            data = st.date_input("Selecione a data", min_value=date.today())
-            horario = st.time_input("Selecione o horário")
-
-            valor_final = st.number_input("Informe o valor final", min_value=0.0, format="%.2f")
+            descricoes_atendimentos = {
+                f"ID: {at.id} - Data: {at.data.strftime('%d/%m/%Y')} - Horário: {at.horario.strftime('%H:%M')}": at
+                for at in atendimentos_livres
+            }
+            descricao_atendimento = st.selectbox(
+                "Selecione o atendimento", list(descricoes_atendimentos.keys())
+            )
+            atendimento_escolhido = descricoes_atendimentos[descricao_atendimento]
 
             if st.button("Agendar"):
                 try:
-                    novo_atendimento = View.atendimento_inserir(
-                        id_paciente=paciente_escolhido.id,
+                    View.atendimento_atualizar(
+                        id=atendimento_escolhido.id,
+                        id_paciente=st.session_state["paciente_id"],
                         id_medico=medico_escolhido.id,
-                        data=data,
-                        horario=horario,
-                        valor_final=valor_final
+                        data=atendimento_escolhido.data,
+                        horario=atendimento_escolhido.horario,
+                        valor_final=atendimento_escolhido.valor_final,
                     )
                     st.success("Atendimento agendado com sucesso.")
                     time.sleep(2)
                     st.rerun()
                 except Exception as e:
                     st.error(f"Erro ao agendar atendimento: {str(e)}")
-
