@@ -58,4 +58,3 @@ class Procedimentos_CRUD(CRUDGeral):
             data["descricao"],
             data["valor"],
         )
-    
