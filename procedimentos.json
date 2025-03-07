@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "descricao": "Exame de Sangue",
+        "valor": 80.0
+    },
+    {
+        "id": 2,
+        "descricao": "Consulta",
+        "valor": 15.0
+    },
+    {
+        "id": 3,
+        "descricao": "Receita de Rem\u00e9dio",
+        "valor": 24.5
+    },
+    {
+        "id": 4,
+        "descricao": "Raio-X",
+        "valor": 78.8
+    }
+]

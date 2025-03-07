@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nome": "admin",
+        "fone": "000000000",
+        "email": "@admin",
+        "cpf": "00000000000",
+        "senha": "1234"
+    },
+    {
+        "id": 2,
+        "nome": "Juliana",
+        "fone": "31974",
+        "email": "@juliana",
+        "cpf": "423.231.313-23",
+        "senha": "senha"
+    },
+    {
+        "id": 3,
+        "nome": "Jamily",
+        "fone": "301810934",
+        "email": "@jamily",
+        "cpf": "204.232.323.32",
+        "senha": "senha"
+    }
+]
